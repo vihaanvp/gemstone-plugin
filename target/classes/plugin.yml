@@ -1,0 +1,44 @@
+name: GemstonePlugin
+version: '1.0-SNAPSHOT'
+main: me.vihaanvp.gemstoneplugin.GemstonePlugin
+api-version: '1.21'
+authors: [VihaanVP]
+description: A Gemstone Plugin made for the Gemlands SMP, with 5 custom Gemstones and one SUPER Gemstone!
+
+commands:
+  givegem:
+    description: Gives a specified gemstone to a player
+    usage: /givegem <blazite|aquaryte|terranox|voltaryn|noctyra> [player]
+    permission: gemstones.givegem
+
+  giverandomizer:
+    description: Gives a Gemstone Randomizer item to a player
+    usage: /giverandomizer <player>
+    permission: gemstones.giverandomizer
+
+  givelootbox:
+    description: Gives a Loot Box item to a player
+    usage: /givelootbox <player>
+    permission: gemstones.givelootbox
+
+  deathdebuff:
+    description: Apply or remove death debuff from a player.
+    usage: /deathdebuff <remove|apply> [player]
+    permission: gemstone.deathdebuff
+
+permissions:
+  gemstones.givegem:
+    description: Allows players to execute the /givegem command
+    default: op
+
+  gemstones.giverandomizer:
+    description: Allows players to execute the /giverandomizer command
+    default: op
+
+  gemstones.givelootbox:
+    description: Allows players to execute the /givelootbox command
+    default: op
+
+  gemstones.deathdebuff:
+    description: Allows players to execute the /deathdebuff command
+    default: op
