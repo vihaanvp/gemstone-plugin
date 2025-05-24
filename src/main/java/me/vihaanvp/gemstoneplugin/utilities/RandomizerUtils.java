@@ -51,4 +51,9 @@ public class RandomizerUtils implements Listener {
             player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1f, 1f);
         }
     }
+
+    public static boolean isRandomizer(ItemStack item) {
+        if (item == null || item.getType() != Material.NETHER_STAR || !item.hasItemMeta()) return false;
+        return "§dGemstone Randomizer".equals(item.getItemMeta().getDisplayName());
+    }
 }

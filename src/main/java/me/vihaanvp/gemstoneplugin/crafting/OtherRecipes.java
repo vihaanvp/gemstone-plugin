@@ -1,5 +1,8 @@
-package me.vihaanvp.gemstoneplugin.utilities;
+package me.vihaanvp.gemstoneplugin.crafting;
 
+import me.vihaanvp.gemstoneplugin.listeners.GemstoneRecipeValidator;
+import me.vihaanvp.gemstoneplugin.utilities.LootBoxUtils;
+import me.vihaanvp.gemstoneplugin.utilities.RandomizerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -7,20 +10,22 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.Plugin;
 
-import static me.vihaanvp.gemstoneplugin.utilities.RandomizerUtils.createRandomizer;
+public class OtherRecipes {
 
-public class CraftingUtils {
+    private static final GemstoneRecipeValidator validatorListener = new GemstoneRecipeValidator();
 
     public static void registerAllRecipes(Plugin plugin) {
         registerRandomizerRecipe(plugin);
         registerLootBoxRecipe(plugin);
+
+        Bukkit.getPluginManager().registerEvents(validatorListener, plugin);
     }
 
     public static void registerRandomizerRecipe(Plugin plugin) {
-        ItemStack randomizer = createRandomizer();
+        ItemStack randomizer = RandomizerUtils.createRandomizer();
         NamespacedKey key = new NamespacedKey(plugin, "gemstone_randomizer");
         ShapedRecipe recipe = new ShapedRecipe(key, randomizer);
-        recipe.shape (
+        recipe.shape(
                 "IEI",
                 "EDE",
                 "IEI"
@@ -36,7 +41,7 @@ public class CraftingUtils {
         ItemStack lootbox = LootBoxUtils.createLootBox();
         NamespacedKey key = new NamespacedKey(plugin, "gemstone_lootbox");
         ShapedRecipe recipe = new ShapedRecipe(key, lootbox);
-        recipe.shape (
+        recipe.shape(
                 "GDG",
                 "DGD",
                 "GDG"

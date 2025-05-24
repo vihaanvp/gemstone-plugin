@@ -1,8 +1,9 @@
 package me.vihaanvp.gemstoneplugin;
 
+import me.vihaanvp.gemstoneplugin.crafting.GemstoneRecipes;
+import me.vihaanvp.gemstoneplugin.crafting.OtherRecipes;
 import me.vihaanvp.gemstoneplugin.gemstones.*;
 import me.vihaanvp.gemstoneplugin.listeners.*;
-import me.vihaanvp.gemstoneplugin.utilities.*;
 import me.vihaanvp.gemstoneplugin.commands.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,7 +31,8 @@ public class GemstonePlugin extends JavaPlugin {
         getLogger().info("Registered Commands Successfully!");
 
         // Register crafting recipes
-        CraftingUtils.registerAllRecipes(this);
+        OtherRecipes.registerAllRecipes(this);
+        GemstoneRecipes.registerAllGemRecipes(this);
         getLogger().info("Registered Crafting Recipes Successfully!");
 
         getLogger().info("Gemstone Plugin has been successfully enabled!");
