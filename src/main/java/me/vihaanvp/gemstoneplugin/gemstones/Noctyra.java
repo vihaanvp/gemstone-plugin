@@ -32,9 +32,7 @@ public class Noctyra implements Listener {
             meta.setDisplayName(ChatColor.DARK_PURPLE + "Noctyra");
             meta.setLore(List.of(
                     ChatColor.GRAY + "Right-click to become invisible for 3 minutes",
-                    ChatColor.GRAY + "Cooldown: 10 minutes",
-                    ChatColor.BLACK + " ",
-                    ChatColor.DARK_PURPLE + "Bound Gemstone"
+                    ChatColor.GRAY + "Cooldown: 10 minutes"
             ));
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
             item.setItemMeta(meta);
@@ -42,7 +40,7 @@ public class Noctyra implements Listener {
         return item;
     }
 
-    private boolean isNoctyra(ItemStack item) {
+    public static boolean isNoctyra(ItemStack item) {
         if (item == null || !item.hasItemMeta()) return false;
         ItemMeta meta = item.getItemMeta();
         return meta.hasDisplayName() && ChatColor.stripColor(meta.getDisplayName()).equalsIgnoreCase("Noctyra");

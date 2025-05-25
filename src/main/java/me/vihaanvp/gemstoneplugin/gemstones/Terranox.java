@@ -37,9 +37,7 @@ public class Terranox implements Listener {
             meta.setDisplayName(ChatColor.GREEN + "Terranox");
             meta.setLore(List.of(
                     ChatColor.DARK_GREEN + "Grants Strength when standing on natural blocks",
-                    ChatColor.DARK_GREEN + "Right-click surface block to fully heal",
-                    ChatColor.BLACK + " ",
-                    ChatColor.DARK_PURPLE + "Bound Gemstone"
+                    ChatColor.DARK_GREEN + "Right-click surface block to fully heal"
             ));
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
             item.setItemMeta(meta);
@@ -47,7 +45,7 @@ public class Terranox implements Listener {
         return item;
     }
 
-    private boolean isTerranox(ItemStack item) {
+    public static boolean isTerranox(ItemStack item) {
         if (item == null || item.getType() != Material.EMERALD || !item.hasItemMeta()) return false;
         ItemMeta meta = item.getItemMeta();
         return meta != null

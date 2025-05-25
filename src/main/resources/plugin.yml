@@ -1,5 +1,5 @@
 name: GemstonePlugin
-version: '1.0-SNAPSHOT'
+version: '1.2'
 main: me.vihaanvp.gemstoneplugin.GemstonePlugin
 api-version: '1.21'
 authors: [VihaanVP]
@@ -26,6 +26,11 @@ commands:
     usage: /deathdebuff <remove|apply> [player]
     permission: gemstone.deathdebuff
 
+  givebinder:
+    description: Gives you a Gemstone Binder
+    usage: /givebinder <amount> [player]
+    permission: gemstones.givebinder
+
 permissions:
   gemstones.givegem:
     description: Allows players to execute the /givegem command
@@ -41,4 +46,8 @@ permissions:
 
   gemstones.deathdebuff:
     description: Allows players to execute the /deathdebuff command
+    default: op
+
+  gemstones.givebinder:
+    description: Allows players to execute the /givebinder command
     default: op

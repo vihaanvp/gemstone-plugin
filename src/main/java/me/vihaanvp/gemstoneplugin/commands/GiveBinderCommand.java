@@ -1,6 +1,6 @@
 package me.vihaanvp.gemstoneplugin.commands;
 
-import me.vihaanvp.gemstoneplugin.utilities.RandomizerUtils;
+import me.vihaanvp.gemstoneplugin.utilities.BoundGemstoneUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -10,21 +10,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class GiveRandomizerCommand implements CommandExecutor {
+public class GiveBinderCommand implements CommandExecutor {
 
     private final Plugin plugin;
 
-    public GiveRandomizerCommand(Plugin plugin) {
+    public GiveBinderCommand(Plugin plugin) {
         this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        // Usage: /giverandomizer <amount> [player]
+        // Usage: /givebinder <amount> [player]
         if (args.length < 1) {
-            sender.sendMessage(ChatColor.RED + "Usage: /giverandomizer <amount> [player]");
+            sender.sendMessage(ChatColor.RED + "Usage: /givebinder <amount> [player]");
             return true;
         }
 
@@ -51,16 +52,15 @@ public class GiveRandomizerCommand implements CommandExecutor {
             return true;
         }
 
-        // You must implement this utility method to return a Randomizer ItemStack.
-        ItemStack randomizer = RandomizerUtils.createRandomizer();
-        randomizer.setAmount(amount);
+        ItemStack binder = BoundGemstoneUtils.createGemstoneBinder();
+        binder.setAmount(amount);
 
-        Map<Integer, ItemStack> leftovers = target.getInventory().addItem(randomizer);
+        Map<Integer, ItemStack> leftovers = target.getInventory().addItem(binder);
         leftovers.values().forEach(item -> target.getWorld().dropItemNaturally(target.getLocation(), item));
 
-        target.sendMessage(ChatColor.GREEN + "You have received " + amount + " Gemstone Randomizer" + (amount == 1 ? "!" : "s!"));
+        target.sendMessage(ChatColor.GREEN + "You have received " + amount + " Gemstone Binder" + (amount == 1 ? "!" : "s!"));
         if (!target.equals(sender)) {
-            sender.sendMessage(ChatColor.GREEN + "Gave " + amount + " Gemstone Randomizer" + (amount == 1 ? "" : "s") + " to " + target.getName() + ".");
+            sender.sendMessage(ChatColor.GREEN + "Gave " + amount + " Gemstone Binder" + (amount == 1 ? "" : "s") + " to " + target.getName() + ".");
         }
         return true;
     }

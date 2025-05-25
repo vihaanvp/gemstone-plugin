@@ -29,9 +29,7 @@ public class Aquaryte implements Listener {
             meta.setLore(List.of(
                     ChatColor.GRAY + "Grants Water Breathing, Dolphin's Grace, Conduit Power when held",
                     ChatColor.GRAY + "Right-click to teleport to nearest water source (60s cooldown)",
-                    ChatColor.GRAY + "The water source must be at surface level and exposed to the sky",
-                    ChatColor.BLACK + " ",
-                    ChatColor.DARK_PURPLE + "Bound Gemstone"
+                    ChatColor.GRAY + "The water source must be at surface level and exposed to the sky"
             ));
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
             item.setItemMeta(meta);
@@ -39,7 +37,7 @@ public class Aquaryte implements Listener {
         return item;
     }
 
-    private boolean isAquaryte(ItemStack item) {
+    public static boolean isAquaryte(ItemStack item) {
         if (item == null || !item.hasItemMeta()) return false;
         ItemMeta meta = item.getItemMeta();
         return meta.hasDisplayName() && ChatColor.stripColor(meta.getDisplayName()).equalsIgnoreCase("Aquaryte");

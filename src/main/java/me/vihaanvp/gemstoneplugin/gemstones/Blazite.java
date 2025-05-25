@@ -29,9 +29,7 @@ public class Blazite implements Listener {
             meta.setDisplayName(ChatColor.RED + "Blazite");
             meta.setLore(List.of(
                     ChatColor.GOLD + "Grants Fire Resistance when held",
-                    ChatColor.GRAY + "Right-click an entity to set it on fire (60s cooldown)",
-                    ChatColor.BLACK + " ",
-                    ChatColor.DARK_PURPLE + "Bound Gemstone"
+                    ChatColor.GRAY + "Right-click an entity to set it on fire (60s cooldown)"
             ));
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
             item.setItemMeta(meta);
@@ -88,7 +86,7 @@ public class Blazite implements Listener {
     }
 
     // Identifies item as Blazite
-    private boolean isBlazite(ItemStack item) {
+    public static boolean isBlazite(ItemStack item) {
         if (item == null || !item.hasItemMeta()) return false;
         ItemMeta meta = item.getItemMeta();
         return item.getType() == Material.BLAZE_ROD &&

@@ -35,9 +35,7 @@ public class Voltaryn implements Listener {
             meta.setDisplayName(ChatColor.YELLOW + "Voltaryn");
             meta.setLore(List.of(
                     ChatColor.GRAY + "Passive Speed I",
-                    ChatColor.GRAY + "Right-click a player or mob to strike lightning (2 min cooldown)",
-                    ChatColor.BLACK + " ",
-                    ChatColor.DARK_PURPLE + "Bound Gemstone"
+                    ChatColor.GRAY + "Right-click a player or mob to strike lightning (2 min cooldown)"
             ));
             meta.setUnbreakable(true);
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE);
@@ -46,7 +44,7 @@ public class Voltaryn implements Listener {
         return item;
     }
 
-    private boolean isVoltaryn(ItemStack item) {
+    public static boolean isVoltaryn(ItemStack item) {
         if (item == null || !item.hasItemMeta()) return false;
         ItemMeta meta = item.getItemMeta();
         return meta.hasDisplayName() && ChatColor.stripColor(meta.getDisplayName()).equalsIgnoreCase("Voltaryn");

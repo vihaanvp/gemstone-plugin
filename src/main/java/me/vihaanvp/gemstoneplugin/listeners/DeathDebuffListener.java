@@ -19,8 +19,8 @@ public class DeathDebuffListener implements Listener {
     private final Set<UUID> debuffedPlayers = new HashSet<>();
     private final Plugin plugin;
     private static final double DEBUFFED_HEALTH = 12.0; // 6 hearts
-    private static final int DEBUFF_SECONDS = 60; // Total debuff duration in seconds
-    private static final int PVP_BLOCK_SECONDS = 30; // PvP block duration in seconds
+    private static final int DEBUFF_SECONDS = (30 * 60); // Total debuff duration in seconds
+    private static final int PVP_BLOCK_SECONDS = (30 * 60); // PvP block duration in seconds
 
     public DeathDebuffListener(Plugin plugin) {
         this.plugin = plugin;

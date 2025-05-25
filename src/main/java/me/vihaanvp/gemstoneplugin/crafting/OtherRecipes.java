@@ -1,6 +1,7 @@
 package me.vihaanvp.gemstoneplugin.crafting;
 
 import me.vihaanvp.gemstoneplugin.listeners.GemstoneRecipeValidator;
+import me.vihaanvp.gemstoneplugin.utilities.BoundGemstoneUtils;
 import me.vihaanvp.gemstoneplugin.utilities.LootBoxUtils;
 import me.vihaanvp.gemstoneplugin.utilities.RandomizerUtils;
 import org.bukkit.Bukkit;
@@ -17,6 +18,7 @@ public class OtherRecipes {
     public static void registerAllRecipes(Plugin plugin) {
         registerRandomizerRecipe(plugin);
         registerLootBoxRecipe(plugin);
+        registerGemstoneBinderRecipe(plugin);
 
         Bukkit.getPluginManager().registerEvents(validatorListener, plugin);
     }
@@ -48,6 +50,23 @@ public class OtherRecipes {
         );
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
         recipe.setIngredient('G', Material.GOLD_BLOCK);
+        Bukkit.addRecipe(recipe);
+    }
+
+    public static void registerGemstoneBinderRecipe(Plugin plugin) {
+        ItemStack binder = BoundGemstoneUtils.createGemstoneBinder();
+
+        NamespacedKey key = new NamespacedKey(plugin, "gemstone_binder");
+        ShapedRecipe recipe = new ShapedRecipe(key, binder);
+        recipe.shape (
+                "IDI",
+                "DTD",
+                "IDI"
+        );
+        recipe.setIngredient('T', Material.TOTEM_OF_UNDYING);
+        recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+        recipe.setIngredient('I', Material.IRON_BLOCK);
+
         Bukkit.addRecipe(recipe);
     }
 }
