@@ -1,5 +1,5 @@
 name: GemstonePlugin
-version: '1.2'
+version: '1.3'
 main: me.vihaanvp.gemstoneplugin.GemstonePlugin
 api-version: '1.21'
 authors: [VihaanVP]
@@ -13,7 +13,7 @@ commands:
 
   giverandomizer:
     description: Gives a Gemstone Randomizer item to a player
-    usage: /giverandomizer <player>
+    usage: /giverandomizer <amount> [player]
     permission: gemstones.giverandomizer
 
   givelootbox:
@@ -30,6 +30,26 @@ commands:
     description: Gives you a Gemstone Binder
     usage: /givebinder <amount> [player]
     permission: gemstones.givebinder
+
+  giverevivebook:
+    description: Gives you a revive book
+    usage: /giverevivebook <amount> [player]
+    permission: gemstones.giverevivebook
+
+  reloadrevivefile:
+    description: Reloads the revive file
+    usage: /reloadrevivefile
+    permission: gemstones.reloadrevivefile
+
+  removedeathban:
+    description: Remove deathban for a player
+    usage: /removedeathban <player>
+    permission: gemstones.deathban.remove
+
+  deathban:
+    description: Apply deathban for a player
+    usage: /deathban <player>
+    permission: gemstones.deathban
 
 permissions:
   gemstones.givegem:
@@ -50,4 +70,24 @@ permissions:
 
   gemstones.givebinder:
     description: Allows players to execute the /givebinder command
+    default: op
+
+  gemstones.giverevivebook:
+    description: Allows players to execute the /giverevivebook command
+    default: op
+
+  gemstones.reloadrevivefile:
+    description: Allows players to execute the /reloadrevivefile command
+    default: op
+
+  gemstones.deathban:
+    description: Allows players to execute the /deathban command
+    default: op
+
+  gemstones.deathban.remove:
+    description: Allows players to execute the /removedeathban command
+    default: op
+
+  gemstones.deathban.bypass:
+    description: Allows players to bypass the deathban so they will never get deathbanned
     default: op

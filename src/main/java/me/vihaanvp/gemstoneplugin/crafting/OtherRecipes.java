@@ -4,6 +4,7 @@ import me.vihaanvp.gemstoneplugin.listeners.GemstoneRecipeValidator;
 import me.vihaanvp.gemstoneplugin.utilities.BoundGemstoneUtils;
 import me.vihaanvp.gemstoneplugin.utilities.LootBoxUtils;
 import me.vihaanvp.gemstoneplugin.utilities.RandomizerUtils;
+import me.vihaanvp.gemstoneplugin.utilities.ReviveBookUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -19,6 +20,7 @@ public class OtherRecipes {
         registerRandomizerRecipe(plugin);
         registerLootBoxRecipe(plugin);
         registerGemstoneBinderRecipe(plugin);
+        registerReviveBookRecipe(plugin);
 
         Bukkit.getPluginManager().registerEvents(validatorListener, plugin);
     }
@@ -66,6 +68,25 @@ public class OtherRecipes {
         recipe.setIngredient('T', Material.TOTEM_OF_UNDYING);
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
         recipe.setIngredient('I', Material.IRON_BLOCK);
+
+        Bukkit.addRecipe(recipe);
+    }
+
+    public static void registerReviveBookRecipe(Plugin plugin) {
+        ItemStack reviveBook = ReviveBookUtils.createReviveBook();
+
+        NamespacedKey key = new NamespacedKey(plugin, "revive_book");
+        ShapedRecipe recipe = new ShapedRecipe(key, reviveBook);
+
+        // Example recipe: adjust to your revive book's lore and appearance
+        recipe.shape (
+                "DTD",
+                "TST",
+                "DTD"
+        );
+        recipe.setIngredient('T', Material.TOTEM_OF_UNDYING);
+        recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+        recipe.setIngredient('S', Material.SOUL_SAND);
 
         Bukkit.addRecipe(recipe);
     }
