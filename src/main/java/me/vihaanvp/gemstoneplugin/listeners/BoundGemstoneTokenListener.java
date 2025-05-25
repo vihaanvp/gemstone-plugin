@@ -2,6 +2,7 @@ package me.vihaanvp.gemstoneplugin.listeners;
 
 import me.vihaanvp.gemstoneplugin.gemstones.bound.*;
 import me.vihaanvp.gemstoneplugin.gemstones.*;
+import me.vihaanvp.gemstoneplugin.gemstones.SuperGemstone; // Import your SuperGemstone item class
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -58,6 +59,8 @@ public class BoundGemstoneTokenListener implements Listener {
                 replacement = BoundVoltaryn.createItem(plugin);
             } else if (name.equals("§dBound Noctyra")) {
                 replacement = BoundNoctyra.createItem(plugin);
+            } else if (name.equals("§dSuper Gemstone Token")) {
+                replacement = SuperGemstone.create(plugin); // Give the actual Super Gemstone
             }
             if (replacement != null) {
                 replacement.setAmount(item.getAmount());

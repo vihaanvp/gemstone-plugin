@@ -1,5 +1,5 @@
 name: GemstonePlugin
-version: '1.3'
+version: '1.4'
 main: me.vihaanvp.gemstoneplugin.GemstonePlugin
 api-version: '1.21'
 authors: [VihaanVP]
@@ -90,4 +90,8 @@ permissions:
 
   gemstones.deathban.bypass:
     description: Allows players to bypass the deathban so they will never get deathbanned
+    default: op
+
+  gemstones.supergem.cooldown.bypass:
+    description: Allows players to bypass the Super Gemstone's Cooldown
     default: op

@@ -36,6 +36,7 @@ public class GemstonePlugin extends JavaPlugin {
         getPluginManager().registerEvents(new BoundGemstoneTokenListener(this), this);
         getPluginManager().registerEvents(new BoundGemstoneProtectionListener(this), this);
         getPluginManager().registerEvents(new ReviveBookListener(deathBanManager), this);
+        getPluginManager().registerEvents(new SuperGemstoneListener(this), this);
 
         DeathDebuffListener deathDebuffListener = new DeathDebuffListener(this);
         getPluginManager().registerEvents(deathDebuffListener, this);
@@ -45,7 +46,7 @@ public class GemstonePlugin extends JavaPlugin {
         getLogger().info("Registered Gemstones and Listeners Successfully!");
 
         // Register commands
-        getCommand("givegem").setExecutor(new GiveGemCommand());
+        getCommand("givegem").setExecutor(new GiveGemCommand(this));
         getCommand("giverandomizer").setExecutor(new GiveRandomizerCommand(this));
         getCommand("givelootbox").setExecutor(new GiveLootBoxCommand(this));
         getCommand("deathdebuff").setExecutor(new DeathDebuffCommand(deathDebuffListener.getDebuffedPlayers(), this));

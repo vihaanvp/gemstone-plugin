@@ -2,13 +2,18 @@ package me.vihaanvp.gemstoneplugin.crafting;
 
 import me.vihaanvp.gemstoneplugin.gemstones.*;
 import me.vihaanvp.gemstoneplugin.listeners.GemstoneRecipeValidator;
+import me.vihaanvp.gemstoneplugin.utilities.BoundGemstoneUtils;
 import me.vihaanvp.gemstoneplugin.utilities.RandomizerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+
+import java.util.List;
 
 public class GemstoneRecipes {
 
@@ -20,6 +25,7 @@ public class GemstoneRecipes {
         registerTerranoxRecipe(plugin);
         registerVoltarynRecipe(plugin);
         registerNoctyraRecipe(plugin);
+        registerSuperGemstoneRecipe(plugin);
 
         Bukkit.getPluginManager().registerEvents(validatorListener, plugin);
     }
@@ -137,5 +143,28 @@ public class GemstoneRecipes {
             }
             return true;
         });
+    }
+
+    public static void registerSuperGemstoneRecipe(Plugin plugin) {
+        ItemStack token = SuperGemstone.createToken();
+        NamespacedKey key = new NamespacedKey(plugin, "super_gemstone");
+        ShapedRecipe recipe = new ShapedRecipe(key, token);
+
+        recipe.shape(
+                "R1R",
+                "234",
+                "B5B"
+        );
+
+        // Set ingredients
+        recipe.setIngredient('1', new RecipeChoice.ExactChoice(Blazite.createItem()));
+        recipe.setIngredient('2', new RecipeChoice.ExactChoice(Aquaryte.createItem()));
+        recipe.setIngredient('3', new RecipeChoice.ExactChoice(Terranox.createItem()));
+        recipe.setIngredient('4', new RecipeChoice.ExactChoice(Voltaryn.createItem()));
+        recipe.setIngredient('5', new RecipeChoice.ExactChoice(Noctyra.createItem()));
+        recipe.setIngredient('R', new RecipeChoice.ExactChoice(RandomizerUtils.createRandomizer()));
+        recipe.setIngredient('B', new RecipeChoice.ExactChoice(BoundGemstoneUtils.createGemstoneBinder()));
+
+        Bukkit.addRecipe(recipe);
     }
 }
