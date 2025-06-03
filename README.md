@@ -54,4 +54,5 @@ This is an attempt to recreate that, but for PaperMC, so everyone can experience
 
 ---
 
-> ⚠️ This Plugin is no longer being updated, and if you would like me to modify this, please reach out to me on Discord (vihaanvp)
+> ⚠️ This Plugin is no longer being updated, and if you would like me to modify this, please create a feature request issue.  
+> (or reach out to me on Discord: vihaanvp)
