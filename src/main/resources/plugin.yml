@@ -3,7 +3,7 @@ version: '1.4'
 main: me.vihaanvp.gemstoneplugin.GemstonePlugin
 api-version: '1.21'
 authors: [VihaanVP]
-description: A Gemstone Plugin made for the Gemlands SMP, with 5 custom Gemstones and one SUPER Gemstone!
+description: A Gemstone Plugin with 5 custom Gemstones and one SUPER Gemstone!
 
 commands:
   givegem:
