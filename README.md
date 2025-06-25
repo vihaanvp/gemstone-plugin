@@ -1,6 +1,9 @@
 # 🌟 Super Gemstone Plugin – The Ultimate Minecraft RPG Gemstone Experience! 🌟
 
-Bring your Minecraft server to life with the most immersive gemstone system ever created! (I think so at least)
+Bring your Minecraft server to life with the most immersive gemstone system ever created! (I think so at least)  
+  
+To download, click [here](https://modrinth.com/project/SKmCv10B).  
+_Note: Download is only available on Modrinth_
 
 ## What is the Super Gemstone Plugin?
 
